@@ -95,278 +95,260 @@
 </section>
 
     <!-- Products Section -->
-    <section class="py-20 relative">
-        <div class="container mx-auto px-4">
-            <!-- Section Header -->
-            <div class="text-center mb-16 space-y-4">
-                <div class="inline-block fade-in-down">
-                    <div class="flex items-center justify-center gap-3 mb-4">
-                        <div class="w-12 h-1 bg-gradient-to-r from-transparent to-amber-500 rounded-full"></div>
-                        <i data-lucide="sparkles" class="w-6 h-6 text-amber-500 animate-pulse"></i>
-                        <div class="w-12 h-1 bg-gradient-to-l from-transparent to-amber-500 rounded-full"></div>
-                    </div>
+<section class="py-20 relative">
+    <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16 space-y-4">
+            <div class="inline-block fade-in-down">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-amber-500 rounded-full"></div>
+                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-500 animate-pulse"></i>
+                    <div class="w-12 h-1 bg-gradient-to-l from-transparent to-amber-500 rounded-full"></div>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">محصولات ما</h2>
-                <p class="text-slate-600 text-lg">برای مشاهده قیمت، روی دکمه کلیک کنید</p>
             </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800">محصولات ما</h2>
+            <p class="text-slate-600 text-lg">برای مشاهده قیمت، روی دکمه کلیک کنید</p>
+        </div>
 
-            <!-- Products Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" id="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card" data-index="0">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" id="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="0">
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+                
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                    <img
+                        src="P1.jpg"
+                        alt="جرثقیل ۱۰ تن - دو تلسکوپ"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     
-                    <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img
-                            src="P1.jpg"
-                            alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-1000"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:from-black/50 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg animate-pulse group-hover:scale-110 transition-transform duration-300">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                جدید
-                            </span>
-                        </div>
-
-                        <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-amber-500/30 to-transparent rounded-tr-full group-hover:w-32 group-hover:h-32 transition-all duration-500"></div>
-                    </div>
-
-                    <div class="p-6 relative">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-100/50 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        
-                        <h3 class="text-xl font-bold mb-4 text-slate-800 relative z-10 group-hover:text-amber-600 transition-colors duration-300">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                        
-                        <div class="space-y-3 mb-6 relative z-10">
-                            <div class="flex items-center gap-3 text-slate-600 feature-item">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse"></div>
-                                <span>ظرفیت: ۱۵ تن</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 75ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" style="animation-delay: 0.2s;"></div>
-                                <span>سه تلسکوپ</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 150ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse" style="animation-delay: 0.4s;"></div>
-                                <span>با کف و دوبل</span>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10">
-                            <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 hover:from-amber-500 hover:via-orange-500 hover:to-amber-600 text-white py-3 px-6 rounded-xl transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                                <span>مشاهده قیمت</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div class="price-display hidden bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-2 border-amber-300 rounded-xl p-4 mt-2 cursor-pointer hover:border-amber-400 hover:shadow-lg transition-all">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-slate-600 flex items-center gap-2">
-                                        <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                        قیمت:
-                                    </span>
-                                    <span class="text-amber-600 font-bold animate-pulse">۲.۵۰۰ میلیارد تومان </span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                        <span class="flex items-center gap-2 text-sm">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            جدید
+                        </span>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
-                <div class="product-card" data-index="1">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+                <div class="p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۰ تن - دو تلسکوپ</h3>
                     
-                    <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img
-                            src="P2.jpg"
-                            alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-1000"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:from-black/50 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg animate-pulse group-hover:scale-110 transition-transform duration-300">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                جدید
-                            </span>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span class="text-sm">ظرفیت: ۱۰ تن</span>
                         </div>
-
-                        <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-amber-500/30 to-transparent rounded-tr-full group-hover:w-32 group-hover:h-32 transition-all duration-500"></div>
-                    </div>
-
-                    <div class="p-6 relative">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-100/50 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        
-                        <h3 class="text-xl font-bold mb-4 text-slate-800 relative z-10 group-hover:text-amber-600 transition-colors duration-300">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                        
-                        <div class="space-y-3 mb-6 relative z-10">
-                            <div class="flex items-center gap-3 text-slate-600 feature-item">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse"></div>
-                                <span>ظرفیت: ۱۵ تن</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 75ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" style="animation-delay: 0.2s;"></div>
-                                <span>دو تلسکوپ</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 150ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse" style="animation-delay: 0.4s;"></div>
-                                <span>با کف و دوبل</span>
-                            </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+                            <span class="text-sm">دو تلسکوپ</span>
                         </div>
-
-                        <div class="relative z-10">
-                            <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 hover:from-amber-500 hover:via-orange-500 hover:to-amber-600 text-white py-3 px-6 rounded-xl transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                                <span>مشاهده قیمت</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div class="price-display hidden bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-2 border-amber-300 rounded-xl p-4 mt-2 cursor-pointer hover:border-amber-400 hover:shadow-lg transition-all">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-slate-600 flex items-center gap-2">
-                                        <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                        قیمت:
-                                    </span>
-                                    <span class="text-amber-600 font-bold animate-pulse">۲,۲۵۰ میلیارد تومان</span>
-                                </div>
-                            </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span class="text-sm">بدون کف و دوبل</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Product 3 -->
-                <div class="product-card" data-index="2">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img
-                            src="P3.jpg"
-                            alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1733683296842-c5c32fe36a50?w=800'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:from-black/50 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg animate-pulse group-hover:scale-110 transition-transform duration-300">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                جدید
-                            </span>
-                        </div>
-
-                        <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-amber-500/30 to-transparent rounded-tr-full group-hover:w-32 group-hover:h-32 transition-all duration-500"></div>
-                    </div>
-
-                    <div class="p-6 relative">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-100/50 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        
-                        <h3 class="text-xl font-bold mb-4 text-slate-800 relative z-10 group-hover:text-amber-600 transition-colors duration-300">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                        
-                        <div class="space-y-3 mb-6 relative z-10">
-                            <div class="flex items-center gap-3 text-slate-600 feature-item">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse"></div>
-                                <span>ظرفیت: ۱۵ تن</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 75ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" style="animation-delay: 0.2s;"></div>
-                                <span>سه تلسکوپ</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 150ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse" style="animation-delay: 0.4s;"></div>
-                                <span>بدون کف و دوبل</span>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10">
-                            <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 hover:from-amber-500 hover:via-orange-500 hover:to-amber-600 text-white py-3 px-6 rounded-xl transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                                <span>مشاهده قیمت</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div class="price-display hidden bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-2 border-amber-300 rounded-xl p-4 mt-2 cursor-pointer hover:border-amber-400 hover:shadow-lg transition-all">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-slate-600 flex items-center gap-2">
-                                        <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                        قیمت:
-                                    </span>
-                                    <span class="text-amber-600 font-bold animate-pulse">۲,۲۵۰ میلیارد تومان</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card" data-index="3">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                        <img
-                            src="P4.jpg"
-                            alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1759390304055-40abf9a5b56b?w=800'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:from-black/50 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg animate-pulse group-hover:scale-110 transition-transform duration-300">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                جدید
-                            </span>
-                        </div>
-
-                        <div class="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-br from-amber-500/30 to-transparent rounded-tr-full group-hover:w-32 group-hover:h-32 transition-all duration-500"></div>
-                    </div>
-
-                    <div class="p-6 relative">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-100/50 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-                        
-                        <h3 class="text-xl font-bold mb-4 text-slate-800 relative z-10 group-hover:text-amber-600 transition-colors duration-300">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                        
-                        <div class="space-y-3 mb-6 relative z-10">
-                            <div class="flex items-center gap-3 text-slate-600 feature-item">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 animate-pulse"></div>
-                                <span>ظرفیت: ۱۵ تن</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 75ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 animate-pulse" style="animation-delay: 0.2s;"></div>
-                                <span>دو تلسکوپ</span>
-                            </div>
-                            <div class="flex items-center gap-3 text-slate-600 feature-item" style="transition-delay: 150ms;">
-                                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse" style="animation-delay: 0.4s;"></div>
-                                <span>بدون کف و دوبل</span>
-                            </div>
-                        </div>
-
-                        <div class="relative z-10">
-                            <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 hover:from-amber-500 hover:via-orange-500 hover:to-amber-600 text-white py-3 px-6 rounded-xl transition-all duration-500 flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                                <span>مشاهده قیمت</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                            <div class="price-display hidden bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-2 border-amber-300 rounded-xl p-4 mt-2 cursor-pointer hover:border-amber-400 hover:shadow-lg transition-all">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-slate-600 flex items-center gap-2">
-                                        <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                        قیمت:
-                                    </span>
-                                    <span class="text-amber-600 font-bold animate-pulse">۲,۰۰۰ میلیارد تومان</span>
-                                </div>
+                    <div class="relative">
+                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                            <span>مشاهده قیمت</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </button>
+                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
+                                    قیمت:
+                                </span>
+                                <span class="text-amber-600 font-bold">۱,۸۰۰ میلیون تومان</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Price Note -->
-            <div class="text-center fade-in-up-delay">
-                <div class="inline-block bg-gradient-to-r from-blue-50 via-cyan-50 to-blue-50 border-2 border-blue-300 rounded-2xl p-6 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500">
-                    <p class="text-blue-700 flex items-center gap-2 text-lg font-semibold">
-                        <i data-lucide="sparkles" class="w-5 h-5 animate-pulse"></i>
-                        قیمت‌ها به میلیارد تومان می‌باشد
-                        <i data-lucide="sparkles" class="w-5 h-5 animate-pulse" style="animation-delay: 0.5s;"></i>
-                    </p>
+            <!-- Product 2 -->
+            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="1">
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+                
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                    <img
+                        src="P2.jpg"
+                        alt="جرثقیل ۱۱ تن - سه تلسکوپ"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                        <span class="flex items-center gap-2 text-sm">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            جدید
+                        </span>
+                    </div>
+                </div>
+
+                <div class="p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۱ تن - سه تلسکوپ</h3>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span class="text-sm">ظرفیت: ۱۱ تن</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+                            <span class="text-sm">سه تلسکوپ</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span class="text-sm">بدون کف و دوبل</span>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                            <span>مشاهده قیمت</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </button>
+                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
+                                    قیمت:
+                                </span>
+                                <span class="text-amber-600 font-bold">۲,۱۰۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="2">
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+                
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                    <img
+                        src="P3.jpg"
+                        alt="جرثقیل ۱۲ تن - دو تلسکوپ"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                        <span class="flex items-center gap-2 text-sm">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            جدید
+                        </span>
+                    </div>
+                </div>
+
+                <div class="p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۲ تن - دو تلسکوپ</h3>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span class="text-sm">ظرفیت: ۱۲ تن</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+                            <span class="text-sm">دو تلسکوپ</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span class="text-sm">با کف و دوبل</span>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                            <span>مشاهده قیمت</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </button>
+                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
+                                    قیمت:
+                                </span>
+                                <span class="text-amber-600 font-bold">۲,۴۰۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="3">
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+                
+                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
+                    <img
+                        src="P4.jpg"
+                        alt="جرثقیل ۱۳ تن - سه تلسکوپ"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
+                        <span class="flex items-center gap-2 text-sm">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            جدید
+                        </span>
+                    </div>
+                </div>
+
+                <div class="p-6 relative">
+                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۳ تن - سه تلسکوپ</h3>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span class="text-sm">ظرفیت: ۱۳ تن</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
+                            <span class="text-sm">سه تلسکوپ</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-slate-600">
+                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span class="text-sm">با کف و دوبل</span>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                            <span>مشاهده قیمت</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </button>
+                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
+                                    قیمت:
+                                </span>
+                                <span class="text-amber-600 font-bold">۲,۷۰۰ میلیون تومان</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Price Note -->
+        <div class="text-center">
+            <div class="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-300 rounded-2xl p-6 shadow-xl">
+                <p class="text-blue-700 flex items-center gap-2 text-lg font-semibold">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    قیمت‌ها به میلیون تومان می‌باشد
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Additional Models Section -->
     <section class="py-20 bg-gradient-to-br from-slate-100 via-white to-slate-50 relative overflow-hidden">
@@ -590,5 +572,6 @@
 </body>
 </html>
  برای این بخشی که اسکرین شات دادم تنظیم کن فقط از p1 تا p4 از پروداکت 1 تا 4  از عکسای موجود به نام p1 p2 p3 p4 استفاده کنه نه اینلاین و فقط کد همون بخش رو بفرست
+
 
 

@@ -1,7 +1,9 @@
 // Initialize Lucide Icons
 document.addEventListener('DOMContentLoaded', function() {
     // Create all Lucide icons
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
     
     // Initialize animations and interactions
     initScrollAnimations();
@@ -55,25 +57,56 @@ function initPriceToggles() {
         
         if (toggleBtn && priceDisplay) {
             // Toggle button click
-            toggleBtn.addEventListener('click', function() {
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Hide all other price displays first
+                document.querySelectorAll('.price-display').forEach(function(display) {
+                    if (display !== priceDisplay) {
+                        display.classList.add('hidden');
+                    }
+                });
+                
+                // Reset all other toggle buttons
+                document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                    if (btn !== toggleBtn) {
+                        btn.style.display = 'flex';
+                    }
+                });
+                
+                // Toggle current price display
                 toggleBtn.style.display = 'none';
                 priceDisplay.classList.remove('hidden');
-                priceDisplay.style.display = 'block';
                 
                 // Reinitialize icons for the new elements
-                lucide.createIcons();
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
             });
             
             // Price display click to hide
-            priceDisplay.addEventListener('click', function() {
+            priceDisplay.addEventListener('click', function(e) {
+                e.stopPropagation();
                 priceDisplay.classList.add('hidden');
-                priceDisplay.style.display = 'none';
                 toggleBtn.style.display = 'flex';
                 
                 // Reinitialize icons
-                lucide.createIcons();
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
             });
         }
+    });
+    
+    // Close price displays when clicking outside
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.price-display').forEach(function(display) {
+            display.classList.add('hidden');
+        });
+        document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+            btn.style.display = 'flex';
+        });
     });
 }
 
@@ -115,7 +148,7 @@ function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href !== '#') {
+            if (href !== '#' && href !== '') {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
@@ -183,31 +216,6 @@ if ('IntersectionObserver' in window) {
     });
 }
 
-// Add scroll progress indicator (optional)
-function initScrollProgress() {
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(to right, #f59e0b, #ea580c);
-        z-index: 9999;
-        transition: width 0.1s ease;
-    `;
-    document.body.appendChild(progressBar);
-
-    window.addEventListener('scroll', debounce(function() {
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (window.pageYOffset / windowHeight) * 100;
-        progressBar.style.width = scrolled + '%';
-    }, 10));
-}
-
-// Initialize scroll progress (optional, uncomment to enable)
-// initScrollProgress();
-
 // Handle page visibility for animations
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -252,63 +260,15 @@ window.addEventListener('load', function() {
     
     // Reinitialize all Lucide icons after page load
     setTimeout(function() {
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
     }, 100);
 });
 
 // Handle external links
 document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
     link.setAttribute('rel', 'noopener noreferrer');
-});
-
-// Add click ripple effect to buttons
-function createRipple(event) {
-    const button = event.currentTarget;
-    const ripple = document.createElement('span');
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-
-    ripple.style.width = ripple.style.height = diameter + 'px';
-    ripple.style.left = event.clientX - button.offsetLeft - radius + 'px';
-    ripple.style.top = event.clientY - button.offsetTop - radius + 'px';
-    ripple.classList.add('ripple');
-    ripple.style.cssText = `
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: scale(0);
-        animation: ripple-animation 0.6s ease-out;
-        pointer-events: none;
-    `;
-
-    const rippleStyle = document.createElement('style');
-    rippleStyle.textContent = `
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(rippleStyle);
-
-    const existingRipple = button.querySelector('.ripple');
-    if (existingRipple) {
-        existingRipple.remove();
-    }
-
-    button.style.position = 'relative';
-    button.style.overflow = 'hidden';
-    button.appendChild(ripple);
-
-    setTimeout(function() {
-        ripple.remove();
-    }, 600);
-}
-
-// Add ripple effect to all buttons
-document.querySelectorAll('button').forEach(function(button) {
-    button.addEventListener('click', createRipple);
 });
 
 // Console message
@@ -326,25 +286,15 @@ if (window.performance) {
     });
 }
 
-// Service Worker Registration (optional, for PWA support)
-/*
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('ServiceWorker registration successful:', registration.scope);
-        }, function(err) {
-            console.log('ServiceWorker registration failed:', err);
-        });
-    });
-}
-*/
-
 // Add keyboard navigation support
 document.addEventListener('keydown', function(e) {
     // Escape key to close price displays
     if (e.key === 'Escape') {
-        document.querySelectorAll('.price-display:not(.hidden)').forEach(function(display) {
-            display.click();
+        document.querySelectorAll('.price-display').forEach(function(display) {
+            display.classList.add('hidden');
+        });
+        document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+            btn.style.display = 'flex';
         });
     }
 });
@@ -355,15 +305,9 @@ if (isTouchDevice) {
     document.body.classList.add('touch-device');
 }
 
-// Add browser detection
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-
-if (isIOS || isSafari) {
-    document.body.classList.add('is-safari');
-}
-
 // Re-initialize icons periodically to catch any dynamic content
 setInterval(function() {
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
 }, 2000);

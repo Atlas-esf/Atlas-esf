@@ -49,64 +49,70 @@ function initScrollAnimations() {
 
 // Price Toggle Functionality
 function initPriceToggles() {
-    const productCards = document.querySelectorAll('.product-card');
+    const priceButtons = document.querySelectorAll('.price-toggle-btn');
     
-    productCards.forEach(function(card) {
-        const toggleBtn = card.querySelector('.price-toggle-btn');
-        const priceDisplay = card.querySelector('.price-display');
-        
-        if (toggleBtn && priceDisplay) {
-            // Toggle button click
-            toggleBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Hide all other price displays first
-                document.querySelectorAll('.price-display').forEach(function(display) {
-                    if (display !== priceDisplay) {
-                        display.classList.add('hidden');
-                    }
-                });
-                
-                // Reset all other toggle buttons
-                document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
-                    if (btn !== toggleBtn) {
-                        btn.style.display = 'flex';
-                    }
-                });
-                
-                // Toggle current price display
-                toggleBtn.style.display = 'none';
-                priceDisplay.classList.remove('hidden');
-                
-                // Reinitialize icons for the new elements
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
+    priceButtons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const priceDisplay = this.nextElementSibling;
+            const icon = this.querySelector('i');
+            
+            // Close all other price displays first
+            document.querySelectorAll('.price-display').forEach(function(display) {
+                if (display !== priceDisplay) {
+                    display.classList.add('hidden');
                 }
             });
             
-            // Price display click to hide
-            priceDisplay.addEventListener('click', function(e) {
-                e.stopPropagation();
-                priceDisplay.classList.add('hidden');
-                toggleBtn.style.display = 'flex';
-                
-                // Reinitialize icons
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
+            // Reset all other toggle buttons
+            document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                if (btn !== button) {
+                    btn.style.display = 'flex';
+                    const btnIcon = btn.querySelector('i');
+                    if (btnIcon) {
+                        btnIcon.classList.remove('rotate-180');
+                    }
                 }
             });
-        }
+            
+            // Toggle current price display
+            if (priceDisplay.classList.contains('hidden')) {
+                priceDisplay.classList.remove('hidden');
+                button.style.display = 'none';
+                if (icon) {
+                    icon.classList.add('rotate-180');
+                }
+            } else {
+                priceDisplay.classList.add('hidden');
+                button.style.display = 'flex';
+                if (icon) {
+                    icon.classList.remove('rotate-180');
+                }
+            }
+            
+            // Reinitialize icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
     });
     
     // Close price displays when clicking outside
-    document.addEventListener('click', function() {
-        document.querySelectorAll('.price-display').forEach(function(display) {
-            display.classList.add('hidden');
-        });
-        document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
-            btn.style.display = 'flex';
-        });
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.product-card')) {
+            document.querySelectorAll('.price-display').forEach(function(display) {
+                display.classList.add('hidden');
+            });
+            document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                btn.style.display = 'flex';
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        }
     });
 }
 
@@ -137,9 +143,7 @@ function initProductCards() {
     const cards = document.querySelectorAll('.product-card');
     
     cards.forEach(function(card, index) {
-        setTimeout(function() {
-            card.style.animationDelay = (index * 150) + 'ms';
-        }, 100);
+        card.style.animationDelay = (index * 150) + 'ms';
     });
 }
 
@@ -275,7 +279,7 @@ document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
 console.log('%c🏗️ جرثقیل سازی اطلس اصفهان', 'font-size: 20px; font-weight: bold; color: #f59e0b;');
 console.log('%cWebsite developed with ❤️', 'font-size: 14px; color: #64748b;');
 
-// Performance monitoring (optional)
+// Performance monitoring
 if (window.performance) {
     window.addEventListener('load', function() {
         setTimeout(function() {
@@ -295,6 +299,10 @@ document.addEventListener('keydown', function(e) {
         });
         document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
             btn.style.display = 'flex';
+            const icon = btn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('rotate-180');
+            }
         });
     }
 });

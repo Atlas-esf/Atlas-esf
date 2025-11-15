@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جرثقیل سازی اطلس اصفهان</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">🏗️</div>
+                    <div>
+                        <h1 class="site-title">جرثقیل سازی اطلس اصفهان</h1>
+                        <p class="site-subtitle">تولید کننده جرثقیل‌های صنعتی</p>
+                    </div>
+                </div>
+                <a href="tel:09134202076" class="cta-button">
+                    📞 تماس با ما
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-icon">🏗️</div>
+                <h1 class="hero-title">جرثقیل سازی اطلس اصفهان</h1>
+                <p class="hero-subtitle">تولید کننده انواع جرثقیل‌های صنعتی</p>
+                <div class="hero-badge">
+                    <p>جرثقیل کفی دار موجود در انواع مدل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">محصولات ما</h2>
+                <p class="section-subtitle">برای مشاهده قیمت، روی هر محصول کلیک کنید</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" onclick="togglePrice(this, '۲,۵۰۰')">
+                    <div class="product-image">
+                        <img src="P1.jpg" alt="جرثقیل ۱۵ تن - سه تلسکوپ">
+                        <div class="click-badge">کلیک کنید</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>ظرفیت: ۱۵ تن</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>سه تلسکوپ</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>با کف و دوبل</p>
+                            </div>
+                        </div>
+                        <div class="price-container">
+                            <div class="price-hidden">برای مشاهده قیمت کلیک کنید ⬇</div>
+                            <div class="price-shown">
+                                <p class="price-label">💵 قیمت</p>
+                                <p class="price-value"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" onclick="togglePrice(this, '۲,۲۵۰')">
+                    <div class="product-image">
+                        <img src="P2.jpg" alt="جرثقیل ۱۵ تن - دو تلسکوپ">
+                        <div class="click-badge">کلیک کنید</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>ظرفیت: ۱۵ تن</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>دو تلسکوپ</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>با کف و دوبل</p>
+                            </div>
+                        </div>
+                        <div class="price-container">
+                            <div class="price-hidden">برای مشاهده قیمت کلیک کنید ⬇</div>
+                            <div class="price-shown">
+                                <p class="price-label">💵 قیمت</p>
+                                <p class="price-value"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" onclick="togglePrice(this, '۲,۲۵۰')">
+                    <div class="product-image">
+                        <img src="P3.jpg" alt="جرثقیل ۱۵ تن - سه تلسکوپ">
+                        <div class="click-badge">کلیک کنید</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>ظرفیت: ۱۵ تن</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>سه تلسکوپ</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>بدون کف و دوبل</p>
+                            </div>
+                        </div>
+                        <div class="price-container">
+                            <div class="price-hidden">برای مشاهده قیمت کلیک کنید ⬇</div>
+                            <div class="price-shown">
+                                <p class="price-label">💵 قیمت</p>
+                                <p class="price-value"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" onclick="togglePrice(this, '۲,۰۰۰')">
+                    <div class="product-image">
+                        <img src="P4.jpg" alt="جرثقیل ۱۵ تن - دو تلسکوپ">
+                        <div class="click-badge">کلیک کنید</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>ظرفیت: ۱۵ تن</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>دو تلسکوپ</p>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-dot"></span>
+                                <p>بدون کف و دوبل</p>
+                            </div>
+                        </div>
+                        <div class="price-container">
+                            <div class="price-hidden">برای مشاهده قیمت کلیک کنید ⬇</div>
+                            <div class="price-shown">
+                                <p class="price-label">💵 قیمت</p>
+                                <p class="price-value"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-note">
+                💰 قیمت‌ها به میلیون تومان می‌باشد
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Models -->
+    <section class="additional-models">
+        <div class="container">
+            <h2 class="section-title">مدل‌های بیشتر</h2>
+            <div class="models-grid">
+                <div class="model-card">
+                    <img src="P5.jpg" alt="مدل جرثقیل">
+                    <p>مدل‌های متنوع جرثقیل</p>
+                </div>
+                <div class="model-card">
+                    <img src="P6.jpg" alt="مدل جرثقیل">
+                    <p>کیفیت برتر ساخت</p>
+                </div>
+                <div class="model-card">
+                    <img src="P7.jpg" alt="مدل جرثقیل">
+                    <p>خدمات پس از فروش</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title white">برای اطلاعات بیشتر تماس حاصل فرمایید</h2>
+                <p class="contact-subtitle">ما آماده پاسخگویی به سوالات شما هستیم</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon green">📞</div>
+                    <h3>تماس تلفنی</h3>
+                    <a href="tel:09134202076" class="contact-value">۰۹۱۳۴۲۰۲۰۷۶</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon pink">📷</div>
+                    <h3>اینستاگرام</h3>
+                    <a href="https://instagram.com/alikarimi_1013" target="_blank" class="contact-value">@alikarimi_1013</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon blue">👤</div>
+                    <h3>مدیریت</h3>
+                    <p class="contact-value">علیرضا کریمی</p>
+                </div>
+
+                <div class="contact-card wide">
+                    <div class="contact-icon red">📍</div>
+                    <h3>آدرس</h3>
+                    <p class="contact-value">اصفهان، شهرک صنعتی امیرکبیر (شاهپور جدید)، خیابان امام رضا (دفتر جرثقیل اصفهان اطلس)</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon yellow">💳</div>
+                    <h3>شماره کارت</h3>
+                    <p class="contact-value" dir="ltr">6104-3387-7673-3749</p>
+                </div>
+            </div>
+
+            <div class="final-note">
+                <p class="final-note-title">🏭 جرثقیل کفی دار موجود در انواع مدل</p>
+                <p class="final-note-text">با سال‌ها تجربه در صنعت جرثقیل سازی در خدمت شما هستیم</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="footer-icon">🏗️</span>
+                    <p>جرثقیل سازی اطلس اصفهان</p>
+                </div>
+                <p class="footer-text">تولید کننده انواع جرثقیل‌های صنعتی</p>
+                <p class="footer-copyright">© ۱۴۰۳ تمامی حقوق محفوظ است</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function togglePrice(card, price) {
+            const priceContainer = card.querySelector('.price-container');
+            const priceValue = card.querySelector('.price-value');
+            
+            if (priceContainer.classList.contains('show-price')) {
+                priceContainer.classList.remove('show-price');
+            } else {
+                priceContainer.classList.add('show-price');
+                priceValue.textContent = price + ' میلیون تومان';
+            }
+        }
+    </script>
+</body>
+</html>

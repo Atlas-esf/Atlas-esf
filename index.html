@@ -13,7 +13,452 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom Animations and Styles */
+        /* Fade In Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Gradient Animation */
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-animation {
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        /* Fade In Classes */
+        .fade-in {
+            animation: fadeIn 0.7s ease-out;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.7s ease-out;
+        }
+
+        .fade-in-up-delay {
+            animation: fadeInUp 0.7s ease-out 0.5s both;
+        }
+
+        .fade-in-down {
+            animation: fadeInDown 0.7s ease-out;
+        }
+
+        /* Product Cards */
+        .product-card {
+            position: relative;
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .product-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px) !important;
+        }
+
+        .product-card .feature-item {
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .feature-item {
+            transform: translateX(8px);
+        }
+
+        /* Model Cards */
+        .model-card {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
+        .model-card[data-index="0"] {
+            animation-delay: 0s;
+        }
+
+        .model-card[data-index="1"] {
+            animation-delay: 0.15s;
+        }
+
+        .model-card[data-index="2"] {
+            animation-delay: 0.3s;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
+        .contact-card[data-index="0"] {
+            animation-delay: 0s;
+        }
+
+        .contact-card[data-index="1"] {
+            animation-delay: 0.1s;
+        }
+
+        .contact-card[data-index="2"] {
+            animation-delay: 0.2s;
+        }
+
+        .contact-card[data-index="3"] {
+            animation-delay: 0.3s;
+        }
+
+        .contact-card[data-index="4"] {
+            animation-delay: 0.4s;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Parallax Effect */
+        .parallax-bg {
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Background Patterns */
+        .pattern-bg {
+            background-image: radial-gradient(circle at 2px 2px, #f59e0b 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .footer-pattern {
+            background-image: 
+                linear-gradient(45deg, #f59e0b 25%, transparent 25%),
+                linear-gradient(-45deg, #f59e0b 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f59e0b 75%),
+                linear-gradient(-45deg, transparent 75%, #f59e0b 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        /* Price Toggle Animation */
+        .price-display {
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #f59e0b, #ea580c);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #ea580c, #f59e0b);
+        }
+
+        /* Loading State for Images */
+        img {
+            transition: opacity 0.3s ease;
+        }
+
+        img[src=""],
+        img:not([src]) {
+            opacity: 0;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            h3 {
+                font-size: 1.25rem !important;
+            }
+        }
+
+        /* Hover Effects for Buttons */
+        button {
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sticky,
+            header,
+            footer,
+            button {
+                position: static !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Selection Color */
+        ::selection {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        ::-moz-selection {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        /* Focus Styles for Accessibility */
+        a:focus,
+        button:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 2px;
+        }
+
+        /* Loading Animation */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin 3s linear infinite;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Card Hover Glow */
+        .card-glow {
+            position: relative;
+        }
+
+        .card-glow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #f59e0b, #ea580c, #f59e0b);
+            border-radius: inherit;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s;
+            filter: blur(10px);
+        }
+
+        .card-glow:hover::after {
+            opacity: 1;
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #f59e0b, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Shimmer Effect */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .shimmer {
+            background: linear-gradient(
+                to right,
+                #f0f0f0 0%,
+                #e0e0e0 20%,
+                #f0f0f0 40%,
+                #f0f0f0 100%
+            );
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Bounce on Scroll */
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(50px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            * {
+                border-color: currentColor;
+            }
+        }
+
+        /* Dark Mode Support (Optional) */
+        @media (prefers-color-scheme: dark) {
+            /* Add dark mode styles if needed */
+        }
+
+        /* Performance Optimization */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Prevent Layout Shift */
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container Queries Support */
+        @supports (container-type: inline-size) {
+            .container {
+                container-type: inline-size;
+            }
+        }
+    </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
     
@@ -56,7 +501,7 @@
                 <!-- Image -->
                 <div class="relative h-[400px] md:h-[500px]">
                     <img
-                        src="./hedpic.png"
+                        src="hedpic.png"
                         alt="جرثقیل سازی اطلس اصفهان"
                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                         onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop'"
@@ -117,7 +562,7 @@
             <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="0">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     <img
-                        src="./P1.jpg"
+                        src="P1.jpg"
                         alt="جرثقیل ۱۵ تن - سه تلسکوپ"
                         class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                         onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop'"
@@ -172,7 +617,7 @@
             <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="1">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     <img
-                        src="./P2.jpg"
+                        src="P2.jpg"
                         alt="جرثقیل ۱۵ تن - دو تلسکوپ"
                         class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                         onerror="this.src='https://images.unsplash.com/photo-1581093458791-8a6b5d218d13?w=600&h=400&fit=crop'"
@@ -227,7 +672,7 @@
             <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="2">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     <img
-                        src="./P3.jpg"
+                        src="P3.jpg"
                         alt="جرثقیل ۱۵ تن - سه تلسکوپ"
                         class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                         onerror="this.src='https://images.unsplash.com/photo-1581093458791-8a6b5d218d13?w=600&h=400&fit=crop'"
@@ -282,7 +727,7 @@
             <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="3">
                 <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
                     <img
-                        src="./P4.jpg"
+                        src="P4.jpg"
                         alt="جرثقیل ۱۵ تن - دو تلسکوپ"
                         class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                         onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop'"
@@ -371,7 +816,7 @@
                     
                     <div class="relative h-80 overflow-hidden">
                         <img
-                            src="./M1.jpg"
+                            src="M1.jpg"
                             alt="مدل‌های متنوع جرثقیل"
                             class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                             onerror="this.src='https://images.unsplash.com/photo-1751054720514-067105f538d4?w=600'"
@@ -394,7 +839,7 @@
                     
                     <div class="relative h-80 overflow-hidden">
                         <img
-                            src="./M2.jpg"
+                            src="M2.jpg"
                             alt="کیفیت برتر ساخت"
                             class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                             onerror="this.src='https://images.unsplash.com/photo-1733683296842-c5c32fe36a50?w=600'"
@@ -417,7 +862,7 @@
                     
                     <div class="relative h-80 overflow-hidden">
                         <img
-                            src="./M3.jpg"
+                            src="M3.jpg"
                             alt="خدمات پس از فروش"
                             class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                             onerror="this.src='https://images.unsplash.com/photo-1759390304055-40abf9a5b56b?w=600'"
@@ -565,6 +1010,331 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create all Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Initialize animations and interactions
+            initScrollAnimations();
+            initPriceToggles();
+            initParallaxEffect();
+            initProductCards();
+            initSmoothScroll();
+        });
+
+        // Scroll Animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(function(card) {
+                observer.observe(card);
+            });
+
+            // Observe model cards
+            const modelCards = document.querySelectorAll('.model-card');
+            modelCards.forEach(function(card) {
+                observer.observe(card);
+            });
+
+            // Observe contact cards
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(function(card) {
+                observer.observe(card);
+            });
+        }
+
+        // Price Toggle Functionality
+        function initPriceToggles() {
+            const priceButtons = document.querySelectorAll('.price-toggle-btn');
+            
+            priceButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const priceDisplay = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // Close all other price displays first
+                    document.querySelectorAll('.price-display').forEach(function(display) {
+                        if (display !== priceDisplay) {
+                            display.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Reset all other toggle buttons
+                    document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                        if (btn !== button) {
+                            btn.style.display = 'flex';
+                            const btnIcon = btn.querySelector('i');
+                            if (btnIcon) {
+                                btnIcon.classList.remove('rotate-180');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current price display
+                    if (priceDisplay.classList.contains('hidden')) {
+                        priceDisplay.classList.remove('hidden');
+                        button.style.display = 'none';
+                        if (icon) {
+                            icon.classList.add('rotate-180');
+                        }
+                    } else {
+                        priceDisplay.classList.add('hidden');
+                        button.style.display = 'flex';
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    }
+                    
+                    // Reinitialize icons
+                    if (typeof lucide !== 'undefined') {
+                        lucide.createIcons();
+                    }
+                });
+            });
+            
+            // Close price displays when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.product-card')) {
+                    document.querySelectorAll('.price-display').forEach(function(display) {
+                        display.classList.add('hidden');
+                    });
+                    document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                        btn.style.display = 'flex';
+                        const icon = btn.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('rotate-180');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Parallax Effect
+        function initParallaxEffect() {
+            let ticking = false;
+            
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        const scrolled = window.pageYOffset;
+                        const parallaxBg = document.querySelector('.parallax-bg');
+                        
+                        if (parallaxBg) {
+                            parallaxBg.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
+                        }
+                        
+                        ticking = false;
+                    });
+                    
+                    ticking = true;
+                }
+            });
+        }
+
+        // Product Cards Animation on Scroll
+        function initProductCards() {
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach(function(card, index) {
+                card.style.animationDelay = (index * 150) + 'ms';
+            });
+        }
+
+        // Smooth Scroll
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Image Loading with Fallback
+        function handleImageError(img) {
+            img.style.opacity = '0.5';
+            console.warn('Image failed to load:', img.src);
+        }
+
+        // Add image error handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(function(img) {
+                img.addEventListener('error', function() {
+                    handleImageError(this);
+                });
+                
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+            });
+        });
+
+        // Performance Optimization: Debounce Function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = function() {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Lazy Loading for Images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            // Observe all images with data-src attribute
+            document.querySelectorAll('img[data-src]').forEach(function(img) {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Handle page visibility for animations
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                // Pause animations when page is not visible
+                document.querySelectorAll('.animate-pulse, .animate-spin, .animate-bounce').forEach(function(el) {
+                    el.style.animationPlayState = 'paused';
+                });
+            } else {
+                // Resume animations when page is visible
+                document.querySelectorAll('.animate-pulse, .animate-spin, .animate-bounce').forEach(function(el) {
+                    el.style.animationPlayState = 'running';
+                });
+            }
+        });
+
+        // Preload critical images
+        function preloadImages() {
+            const imagesToPreload = [
+                'hedpic.png',
+                'P1.jpg',
+                'P2.jpg',
+                'P3.jpg',
+                'P4.jpg',
+                'M1.jpg',
+                'M2.jpg',
+                'M3.jpg'
+            ];
+
+            imagesToPreload.forEach(function(src) {
+                const img = new Image();
+                img.src = src;
+            });
+        }
+
+        // Call preload when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', preloadImages);
+        } else {
+            preloadImages();
+        }
+
+        // Add loading state
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Reinitialize all Lucide icons after page load
+            setTimeout(function() {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            }, 100);
+        });
+
+        // Handle external links
+        document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+
+        // Console message
+        console.log('%c🏗️ جرثقیل سازی اطلس اصفهان', 'font-size: 20px; font-weight: bold; color: #f59e0b;');
+        console.log('%cWebsite developed with ❤️', 'font-size: 14px; color: #64748b;');
+
+        // Performance monitoring
+        if (window.performance) {
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const perfData = window.performance.timing;
+                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                    console.log('⚡ Page load time:', pageLoadTime + 'ms');
+                }, 0);
+            });
+        }
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Escape key to close price displays
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.price-display').forEach(function(display) {
+                    display.classList.add('hidden');
+                });
+                document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
+                    btn.style.display = 'flex';
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('rotate-180');
+                    }
+                });
+            }
+        });
+
+        // Add touch support detection
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (isTouchDevice) {
+            document.body.classList.add('touch-device');
+        }
+
+        // Re-initialize icons periodically to catch any dynamic content
+        setInterval(function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }, 2000);
+    </script>
 </body>
 </html>

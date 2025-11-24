@@ -3,1431 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جرثقیل سازی اطلس اصفهان</title>
-    <meta name="description" content="تولید کننده انواع جرثقیل‌های صنعتی با بیش از یک دهه تجربه">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Custom Fonts -->
+    <title>Site Blocked - Payment Required</title>
     <style>
-        /* Tabriz Font Face */
-        @font-face {
-            font-family: 'tabriz';
-            src: url('tabriz.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* Apply Tabriz font to all elements */
-        body {
-            font-family: 'tabriz', sans-serif !important;
-            direction: rtl;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        h1, h2, h3, h4, h5, h6, input, textarea, button, a, p, span, div {
-            font-family: 'tabriz', sans-serif !important;
-        }
-
-        /* بقیه استایل‌های سفارشی شما... */
-        /* Custom Animations and Styles */
-        /* Fade In Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Gradient Animation */
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .gradient-animation {
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-        }
-
-
-        /* Fade In Classes */
-        .fade-in {
-            animation: fadeIn 0.7s ease-out;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.7s ease-out;
-        }
-
-        .fade-in-up-delay {
-            animation: fadeInUp 0.7s ease-out 0.5s both;
-        }
-
-        .fade-in-down {
-            animation: fadeInDown 0.7s ease-out;
-        }
-
-        /* Product Cards */
-        .product-card {
-            position: relative;
-            background: white;
-            border-radius: 1.5rem;
+        body {
+            background: #000;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-            opacity: 0;
-            transform: translateY(40px);
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+        
+        .fullscreen-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        .block-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
         }
 
-        .product-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* جلوگیری از کلیک راست و انتخاب متن */
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        .product-card:hover {
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            transform: translateY(-8px) !important;
-        }
-
-        .product-card .feature-item {
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .feature-item {
-            transform: translateX(8px);
-        }
-
-        /* Model Cards */
-        .model-card {
-            opacity: 0;
-            animation: fadeInUp 0.7s ease-out forwards;
-        }
-
-        .model-card[data-index="0"] {
-            animation-delay: 0s;
-        }
-
-        .model-card[data-index="1"] {
-            animation-delay: 0.15s;
-        }
-
-        .model-card[data-index="2"] {
-            animation-delay: 0.3s;
-        }
-
-        /* Contact Cards */
-        .contact-card {
-            opacity: 0;
-            animation: fadeInUp 0.7s ease-out forwards;
-        }
-
-        .contact-card[data-index="0"] {
-            animation-delay: 0s;
-        }
-
-        .contact-card[data-index="1"] {
-            animation-delay: 0.1s;
-        }
-
-        .contact-card[data-index="2"] {
-            animation-delay: 0.2s;
-        }
-
-        .contact-card[data-index="3"] {
-            animation-delay: 0.3s;
-        }
-
-        .contact-card[data-index="4"] {
-            animation-delay: 0.4s;
-        }
-
-        /* Hero Image */
-        .hero-image {
-            animation: fadeIn 1s ease-out;
-        }
-
-        /* Parallax Effect */
-        .parallax-bg {
-            transition: transform 0.1s ease-out;
-        }
-
-        /* Background Patterns */
-        .pattern-bg {
-            background-image: radial-gradient(circle at 2px 2px, #f59e0b 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-
-        .footer-pattern {
-            background-image: 
-                linear-gradient(45deg, #f59e0b 25%, transparent 25%),
-                linear-gradient(-45deg, #f59e0b 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #f59e0b 75%),
-                linear-gradient(-45deg, transparent 75%, #f59e0b 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-        }
-
-        /* Price Toggle Animation */
-        .price-display {
-            animation: slideDown 0.5s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #f59e0b, #ea580c);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(to bottom, #ea580c, #f59e0b);
-        }
-
-        /* Loading State for Images */
+        /* جلوگیری از کشیدن تصویر */
         img {
-            transition: opacity 0.3s ease;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
         }
 
-        img[src=""],
-        img:not([src]) {
-            opacity: 0;
+        /* مخفی کردن اسکرول بار */
+        ::-webkit-scrollbar {
+            display: none;
         }
 
-        /* Responsive Typography */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 1.75rem !important;
-            }
-            
-            h2 {
-                font-size: 1.5rem !important;
-            }
-            
-            h3 {
-                font-size: 1.25rem !important;
-            }
-        }
-
-        /* Hover Effects for Buttons */
-        button {
-            position: relative;
-            overflow: hidden;
-        }
-
-        button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            .sticky,
-            header,
-            footer,
-            button {
-                position: static !important;
-            }
-            
-            .no-print {
-                display: none !important;
-            }
-        }
-
-        /* Selection Color */
-        ::selection {
-            background-color: #f59e0b;
-            color: white;
-        }
-
-        ::-moz-selection {
-            background-color: #f59e0b;
-            color: white;
-        }
-
-        /* Focus Styles for Accessibility */
-        a:focus,
-        button:focus {
-            outline: 2px solid #f59e0b;
-            outline-offset: 2px;
-        }
-
-        /* Loading Animation */
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .animate-spin-slow {
-            animation: spin 3s linear infinite;
-        }
-
-        /* Glassmorphism Effect */
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Card Hover Glow */
-        .card-glow {
-            position: relative;
-        }
-
-        .card-glow::after {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, #f59e0b, #ea580c, #f59e0b);
-            border-radius: inherit;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.5s;
-            filter: blur(10px);
-        }
-
-        .card-glow:hover::after {
-            opacity: 1;
-        }
-
-        /* Text Gradient */
-        .text-gradient {
-            background: linear-gradient(to right, #f59e0b, #ea580c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Shimmer Effect */
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .shimmer {
-            background: linear-gradient(
-                to right,
-                #f0f0f0 0%,
-                #e0e0e0 20%,
-                #f0f0f0 40%,
-                #f0f0f0 100%
-            );
-            background-size: 1000px 100%;
-            animation: shimmer 2s infinite;
-        }
-
-        /* Bounce on Scroll */
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) translateY(50px);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .bounce-in {
-            animation: bounceIn 0.8s ease-out;
-        }
-
-        /* RTL Support */
-        [dir="rtl"] {
-            direction: rtl;
-            text-align: right;
-        }
-
-        /* High Contrast Mode Support */
-        @media (prefers-contrast: high) {
-            * {
-                border-color: currentColor;
-            }
-        }
-
-        /* Dark Mode Support (Optional) */
-        @media (prefers-color-scheme: dark) {
-            /* Add dark mode styles if needed */
-        }
-
-        /* Performance Optimization */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Prevent Layout Shift */
-        img,
-        video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Container Queries Support */
-        @supports (container-type: inline-size) {
-            .container {
-                container-type: inline-size;
-            }
+        /* جلوگیری از زوم در موبایل */
+        body {
+            touch-action: none;
+            -ms-touch-action: none;
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+<body>
+    <!-- تصویر pay.png به صورت تمام صفحه -->
+    <img src="pay.png" alt="Payment Required" class="fullscreen-image" id="paymentImage">
 
-    <!-- Payment Reminder Modal -->
-<div id="paymentModal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-    <div class="relative bg-white rounded-3xl shadow-2xl max-w-md mx-4 overflow-hidden transform scale-95 opacity-0 transition-all duration-500">
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-red-500 to-rose-600 p-6 text-center">
-            <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                <i data-lucide="alert-triangle" class="w-8 h-8 text-white"></i>
+    <!-- لایه مسدود کننده -->
+    <div class="block-overlay" id="blockOverlay">
+        <div>
+            <h1 style="font-size: 2em; margin-bottom: 20px; color: #ff4444;">سایت مسدود شده است</h1>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">لطفاً برای فعال‌سازی سایت، هزینه را پرداخت کنید</p>
+            <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p style="font-family: monospace; font-size: 1.1em; direction: ltr;">6104-3387-7673-3749</p>
+                <p style="margin-top: 10px;">شماره کارت</p>
             </div>
-            <h3 class="text-xl font-bold text-white">توجه: پرداخت انجام نشده</h3>
-        </div>
-        
-        <!-- Content -->
-        <div class="p-6 text-center">
-            <p class="text-slate-700 mb-6 leading-relaxed">
-                متأسفانه هزینه طراحی و توسعه سایت هنوز پرداخت نشده است. لطفاً جهت فعال‌سازی کامل سایت، نسبت به پرداخت هزینه اقدام فرمایید.
-            </p>
-            
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6">
-                <p class="text-amber-700 font-semibold flex items-center justify-center gap-2">
-                    <i data-lucide="credit-card" class="w-5 h-5"></i>
-                    شماره کارت: ۶۱۰۴-۳۳۸۷-۷۶۷۳-۳۷۴۹
-                </p>
-            </div>
-            
-            <div class="flex flex-col gap-3">
-                <button id="closePaymentModal" class="w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-slate-950 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
-                    <span>متوجه شدم</span>
-                    <i data-lucide="check" class="w-5 h-5"></i>
-                </button>
-                
-                <button id="contactBtn" class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
-                    <span>تماس با پشتیبانی</span>
-                    <i data-lucide="phone" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="bg-slate-50 p-4 text-center border-t border-slate-200">
-            <p class="text-slate-500 text-sm">با تشکر - تیم توسعه</p>
+            <p style="color: #ffaa00;">تلفن: ۰۹۱۳۴۲۰۲۰۷۶</p>
         </div>
     </div>
-</div>
 
-<!-- Payment Reminder Banner -->
-<div id="paymentBanner" class="fixed bottom-4 left-4 right-4 z-[9998] bg-gradient-to-r from-amber-500 to-orange-600 text-white p-4 rounded-2xl shadow-2xl transform translate-y-32 transition-transform duration-500">
-    <div class="flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <i data-lucide="alert-circle" class="w-5 h-5 text-white"></i>
-            </div>
-            <div>
-                <p class="font-bold">توجه: پرداخت انجام نشده</p>
-                <p class="text-sm opacity-90">لطفاً جهت فعال‌سازی کامل سایت اقدام فرمایید</p>
-            </div>
-        </div>
-        <button id="showPaymentModal" class="bg-white text-amber-600 hover:bg-slate-100 px-4 py-2 rounded-xl transition-all duration-300 font-semibold whitespace-nowrap">
-            مشاهده جزئیات
-        </button>
-    </div>
-</div>
-    <!-- Animated Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-amber-300/10 to-orange-300/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
-        <div class="absolute bottom-40 left-20 w-80 h-80 bg-gradient-to-br from-blue-300/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s; animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s; animation-delay: 2s;"></div>
-    </div>
-
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center gap-4">
-                <!-- لوگو -->
-                <div class="w-14 h-14 flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl transform hover:rotate-12 hover:scale-110 transition-all duration-500">
-                    <img 
-                        src="logo.png" 
-                        alt="جرثقیل سازی اطلس اصفهان"
-                        class="w-full h-full object-contain"
-                        onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop'"
-                    />
-                </div>
-                <div>
-                    <h1 class="text-2xl font-bold text-slate-800 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">جرثقیل سازی اطلس اصفهان</h1>
-                    <p class="text-slate-600">تولید کننده جرثقیل‌های صنعتی</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-<section class="relative py-12 overflow-hidden">
-    <!-- Animated Background Layers -->
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-orange-500/10 to-transparent parallax-bg"></div>
-    
-    <!-- Floating Shapes -->
-    <div class="absolute top-10 right-10 w-20 h-20 border-4 border-amber-400/30 rounded-lg rotate-45 animate-spin" style="animation-duration: 20s;"></div>
-    <div class="absolute bottom-20 left-20 w-16 h-16 border-4 border-orange-400/30 rounded-full animate-bounce" style="animation-duration: 3s;"></div>
-    <div class="absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse"></div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <!-- Large Hero Image Container -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl group hero-image">
-                <!-- Image -->
-                <div class="relative h-[400px] md:h-[500px]">
-                    <img
-                        src="hedpic.png"
-                        alt="جرثقیل سازی اطلس اصفهان"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                        onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop'"
-                    />
-                    
-                    <!-- Gradient Overlays -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-600/30 via-transparent to-orange-600/30 group-hover:opacity-70 transition-opacity duration-700"></div>
-                    
-                    <!-- Animated Light Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 gradient-animation"></div>
-
-                    <!-- Text Overlay -->
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center space-y-6 px-4 transform group-hover:scale-105 transition-transform duration-700">
-                            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-2xl fade-in-up">
-                                جرثقیل سازی اطلس اصفهان
-                            </h1>
-                            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500/90 to-orange-500/90 backdrop-blur-md px-8 py-4 rounded-full shadow-2xl fade-in-up-delay border-2 border-white/30">
-                                <i data-lucide="sparkles" class="w-6 h-6 text-white animate-pulse"></i>
-                                <span class="text-white text-lg md:text-xl font-semibold">کیفیت برتر، خدمات حرفه‌ای</span>
-                                <i data-lucide="sparkles" class="w-6 h-6 text-white animate-pulse" style="animation-delay: 0.5s;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Corner Decorations -->
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent group-hover:w-48 group-hover:h-48 transition-all duration-700"></div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-orange-400/30 to-transparent group-hover:w-48 group-hover:h-48 transition-all duration-700"></div>
-                </div>
-
-                <!-- Bottom Shine Effect -->
-                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent group-hover:h-2 transition-all duration-500"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Products Section -->
-<section class="py-20 relative">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16 space-y-4">
-            <div class="inline-block fade-in-down">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-amber-500 rounded-full"></div>
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-500 animate-pulse"></i>
-                    <div class="w-12 h-1 bg-gradient-to-l from-transparent to-amber-500 rounded-full"></div>
-                </div>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800">محصولات ما</h2>
-            <p class="text-slate-600 text-lg">برای مشاهده قیمت، روی دکمه کلیک کنید</p>
-        </div>
-
-        <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" id="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="0">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="p1.jpg"
-                        alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">سه تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">با کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۵۰۰ میلیارد تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="1">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="p2.jpg"
-                        alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='https://images.unsplash.com/photo-1581093458791-8a6b5d218d13?w=600&h=400&fit=crop'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">دو تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">با کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۲۵۰ میلیارد تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="2">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="p3.jpg"
-                        alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='https://images.unsplash.com/photo-1581093458791-8a6b5d218d13?w=600&h=400&fit=crop'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">سه تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">بدون کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۲۵۰ میلیارد تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="3">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="p4.jpg"
-                        alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">دو تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">بدون کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۰۰۰ میلیارد تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Price Note -->
-        <div class="text-center">
-            <div class="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-300 rounded-2xl p-6 shadow-xl">
-                <p class="text-blue-700 flex items-center gap-2 text-lg font-semibold">
-                    <i data-lucide="sparkles" class="w-5 h-5"></i>
-                    قیمت‌ها به میلیارد تومان می‌باشد
-                    <i data-lucide="sparkles" class="w-5 h-5"></i>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Additional Models Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-100 via-white to-slate-50 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5 pattern-bg"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-block fade-in-down">
-                    <div class="flex items-center justify-center gap-3 mb-4">
-                        <div class="w-12 h-1 bg-gradient-to-r from-transparent to-orange-500 rounded-full"></div>
-                        <i data-lucide="construction" class="w-6 h-6 text-orange-500 animate-pulse"></i>
-                        <div class="w-12 h-1 bg-gradient-to-l from-transparent to-orange-500 rounded-full"></div>
-                    </div>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">مدل‌های بیشتر</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Model 1 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="0">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-80 overflow-hidden">
-                           <img
-                            src="m1.jpg"
-                            alt="مدل های متنوع جرثقیل"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1733683296842-c5c32fe36a50?w=600'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">مدل‌های متنوع جرثقیل</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Model 2 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="1">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-80 overflow-hidden">
-                        <img
-                            src="m2.jpg"
-                            alt="کیفیت برتر ساخت"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1733683296842-c5c32fe36a50?w=600'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">کیفیت برتر ساخت</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Model 3 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="2">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-80 overflow-hidden">
-                        <img
-                            src="m3.jpg"
-                            alt="خدمات پس از فروش"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1759390304055-40abf9a5b56b?w=600'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">خدمات پس از فروش</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="py-20 relative overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s; animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-yellow-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s; animation-delay: 2s;"></div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-16 space-y-4">
-                <div class="inline-block fade-in-down">
-                    <div class="flex items-center justify-center gap-3 mb-4">
-                        <i data-lucide="phone" class="w-6 h-6 text-amber-400 animate-bounce"></i>
-                        <div class="w-12 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"></div>
-                        <div class="w-12 h-1 bg-gradient-to-l from-amber-400 to-orange-400 rounded-full"></div>
-                        <i data-lucide="phone" class="w-6 h-6 text-amber-400 animate-bounce" style="animation-delay: 0.2s;"></i>
-                    </div>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">برای اطلاعات بیشتر تماس حاصل فرمایید</h2>
-                <p class="text-slate-300 text-lg">ما آماده پاسخگویی به سوالات شما هستیم</p>
-            </div>
-
-            <!-- Contact Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Phone -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="0">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">تماس تلفنی</h3>
-                    </div>
-                    <a href="tel:09134202076" class="text-emerald-300 hover:text-emerald-200 transition-colors text-lg font-semibold" dir="ltr">
-                        ۰۹۱۳۴۲۰۲۰۷۶
-                    </a>
-                </div>
-
-                <!-- Instagram -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="instagram" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">اینستاگرام</h3>
-                    </div>
-                    <a href="https://instagram.com/alikarimi_1013" target="_blank" rel="noopener noreferrer" class="text-pink-300 hover:text-pink-200 transition-colors text-lg font-semibold">
-                        @alikarimi_1013
-                    </a>
-                </div>
-
-                <!-- Card Number -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="2">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="credit-card" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">شماره کارت</h3>
-                    </div>
-                    <p class="text-amber-300 text-lg font-semibold" dir="ltr">6104-3387-7673-3749</p>
-                </div>
-
-                <!-- Manager -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="3">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="user" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">مدیریت</h3>
-                    </div>
-                    <p class="text-cyan-300 text-lg font-semibold">علیرضا کریمی</p>
-                </div>
-
-                <!-- Address -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl lg:col-span-2" data-index="4">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="map-pin" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">آدرس</h3>
-                    </div>
-                    <p class="text-rose-300 text-lg leading-relaxed">
-                        اصفهان، شهرک صنعتی امیرکبیر (شاهپور جدید)، خیابان امام رضا (دفتر جرثقیل اصفهان اطلس)
-                    </p>
-                </div>
-            </div>
-
-            <!-- Final Note -->
-            <div class="bg-gradient-to-r from-amber-500/30 via-orange-500/30 to-amber-500/30 backdrop-blur-xl border-2 border-amber-400/50 rounded-3xl p-10 text-center max-w-4xl mx-auto shadow-2xl transform hover:scale-105 transition-all duration-500 fade-in-up-delay">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-300 animate-pulse"></i>
-                    <p class="text-amber-200 text-lg font-semibold">🏭 جرثقیل کفی دار موجود در انواع مدل</p>
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-300 animate-pulse" style="animation-delay: 0.5s;"></i>
-                </div>
-                <p class="text-slate-200 text-lg">با سال‌ها تجربه در صنعت جرثقیل سازی در خدمت شما هستیم</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5 footer-pattern"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center space-y-6">
-                <div class="flex items-center justify-center gap-4 fade-in">
-                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl transform hover:rotate-12 hover:scale-110 transition-all duration-500">
-                        <i data-lucide="construction" class="w-9 h-9 text-white"></i>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-xl font-bold text-white">جرثقیل سازی اطلس اصفهان</p>
-                        <div class="w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mt-1"></div>
-                    </div>
-                </div>
-                <p class="text-slate-400">تولید کننده انواع جرثقیل‌های صنعتی</p>
-                <div class="flex items-center justify-center gap-2 text-slate-500">
-                    <div class="w-12 h-px bg-gradient-to-r from-transparent to-slate-700"></div>
-                    <p>© ۱۴۰۳ تمامی حقوق محفوظ است</p>
-                    <div class="w-12 h-px bg-gradient-to-l from-transparent to-slate-700"></div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
     <script>
-        // Initialize Lucide Icons
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create all Lucide icons
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-            
-            // Initialize animations and interactions
-            initScrollAnimations();
-            initPriceToggles();
-            initParallaxEffect();
-            initProductCards();
-            initSmoothScroll();
+        // مسدود کردن تمام تعاملات
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
         });
 
-        // Scroll Animations
-        function initScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe product cards
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(function(card) {
-                observer.observe(card);
-            });
-
-            // Observe model cards
-            const modelCards = document.querySelectorAll('.model-card');
-            modelCards.forEach(function(card) {
-                observer.observe(card);
-            });
-
-            // Observe contact cards
-            const contactCards = document.querySelectorAll('.contact-card');
-            contactCards.forEach(function(card) {
-                observer.observe(card);
-            });
-        }
-
-        // Price Toggle Functionality
-        function initPriceToggles() {
-            const priceButtons = document.querySelectorAll('.price-toggle-btn');
-            
-            priceButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const priceDisplay = this.nextElementSibling;
-                    const icon = this.querySelector('i');
-                    
-                    // Close all other price displays first
-                    document.querySelectorAll('.price-display').forEach(function(display) {
-                        if (display !== priceDisplay) {
-                            display.classList.add('hidden');
-                        }
-                    });
-                    
-                    // Reset all other toggle buttons
-                    document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
-                        if (btn !== button) {
-                            btn.style.display = 'flex';
-                            const btnIcon = btn.querySelector('i');
-                            if (btnIcon) {
-                                btnIcon.classList.remove('rotate-180');
-                            }
-                        }
-                    });
-                    
-                    // Toggle current price display
-                    if (priceDisplay.classList.contains('hidden')) {
-                        priceDisplay.classList.remove('hidden');
-                        button.style.display = 'none';
-                        if (icon) {
-                            icon.classList.add('rotate-180');
-                        }
-                    } else {
-                        priceDisplay.classList.add('hidden');
-                        button.style.display = 'flex';
-                        if (icon) {
-                            icon.classList.remove('rotate-180');
-                        }
-                    }
-                    
-                    // Reinitialize icons
-                    if (typeof lucide !== 'undefined') {
-                        lucide.createIcons();
-                    }
-                });
-            });
-            
-            // Close price displays when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.product-card')) {
-                    document.querySelectorAll('.price-display').forEach(function(display) {
-                        display.classList.add('hidden');
-                    });
-                    document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
-                        btn.style.display = 'flex';
-                        const icon = btn.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('rotate-180');
-                        }
-                    });
-                }
-            });
-        }
-
-        // Parallax Effect
-        function initParallaxEffect() {
-            let ticking = false;
-            
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        const scrolled = window.pageYOffset;
-                        const parallaxBg = document.querySelector('.parallax-bg');
-                        
-                        if (parallaxBg) {
-                            parallaxBg.style.transform = 'translateY(' + (scrolled * 0.5) + 'px)';
-                        }
-                        
-                        ticking = false;
-                    });
-                    
-                    ticking = true;
-                }
-            });
-        }
-
-        // Product Cards Animation on Scroll
-        function initProductCards() {
-            const cards = document.querySelectorAll('.product-card');
-            
-            cards.forEach(function(card, index) {
-                card.style.animationDelay = (index * 150) + 'ms';
-            });
-        }
-
-        // Smooth Scroll
-        function initSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href !== '#' && href !== '') {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    }
-                });
-            });
-        }
-
-        // Image Loading with Fallback
-        function handleImageError(img) {
-            img.style.opacity = '0.5';
-            console.warn('Image failed to load:', img.src);
-        }
-
-        // Add image error handlers
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(function(img) {
-                img.addEventListener('error', function() {
-                    handleImageError(this);
-                });
-                
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-            });
-        });
-
-        // Performance Optimization: Debounce Function
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = function() {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Lazy Loading for Images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                            observer.unobserve(img);
-                        }
-                    }
-                });
-            });
-
-            // Observe all images with data-src attribute
-            document.querySelectorAll('img[data-src]').forEach(function(img) {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Handle page visibility for animations
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                // Pause animations when page is not visible
-                document.querySelectorAll('.animate-pulse, .animate-spin, .animate-bounce').forEach(function(el) {
-                    el.style.animationPlayState = 'paused';
-                });
-            } else {
-                // Resume animations when page is visible
-                document.querySelectorAll('.animate-pulse, .animate-spin, .animate-bounce').forEach(function(el) {
-                    el.style.animationPlayState = 'running';
-                });
-            }
-        });
-
-        // Preload critical images
-        function preloadImages() {
-            const imagesToPreload = [
-                'hedpic.png',
-                'p1.jpg',
-                'p2.jpg',
-                'p3.jpg',
-                'p4.jpg',
-                'm1.jpg',
-                'm2.jpg',
-                'm3.jpg'
-            ];
-
-            imagesToPreload.forEach(function(src) {
-                const img = new Image();
-                img.src = src;
-            });
-        }
-
-        // Call preload when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', preloadImages);
-        } else {
-            preloadImages();
-        }
-
-        // Add loading state
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-            
-            // Reinitialize all Lucide icons after page load
-            setTimeout(function() {
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
-            }, 100);
-        });
-
-        // Handle external links
-        document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
-            link.setAttribute('rel', 'noopener noreferrer');
-        });
-
-        // Console message
-        console.log('%c🏗️ جرثقیل سازی اطلس اصفهان', 'font-size: 20px; font-weight: bold; color: #f59e0b;');
-        console.log('%cWebsite developed with ❤️', 'font-size: 14px; color: #64748b;');
-
-        // Performance monitoring
-        if (window.performance) {
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const perfData = window.performance.timing;
-                    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-                    console.log('⚡ Page load time:', pageLoadTime + 'ms');
-                }, 0);
-            });
-        }
-
-        // Add keyboard navigation support
+        // مسدود کردن کلیدها
         document.addEventListener('keydown', function(e) {
-            // Escape key to close price displays
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.price-display').forEach(function(display) {
-                    display.classList.add('hidden');
-                });
-                document.querySelectorAll('.price-toggle-btn').forEach(function(btn) {
-                    btn.style.display = 'flex';
-                    const icon = btn.querySelector('i');
-                    if (icon) {
-                        icon.classList.remove('rotate-180');
-                    }
-                });
+            // مسدود کردن F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'u') ||
+                e.key === 'Escape') {
+                e.preventDefault();
+                return false;
             }
         });
 
-        // Add touch support detection
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (isTouchDevice) {
-            document.body.classList.add('touch-device');
-        }
+        // مسدود کردن کلیک‌ها
+        document.addEventListener('click', function(e) {
+            e.preventDefault();
+            return false;
+        });
 
-        // Re-initialize icons periodically to catch any dynamic content
-        setInterval(function() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
+        // مسدود کردن اسکرول
+        document.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        // مسدود کردن تاچ
+        document.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        document.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        // مسدود کردن دبل کلیک
+        document.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // مسدود کردن درگ و دراپ
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // جلوگیری از باز کردن دِولوپر تولز با روش‌های مختلف
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+                e.preventDefault();
+                return false;
             }
-        }, 2000);
+            // Ctrl+Shift+K (Firefox)
+            if (e.ctrlKey && e.shiftKey && e.key === 'K') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // جلوگیری از تغییر اندازه پنجره
+        window.addEventListener('resize', function() {
+            window.resizeTo(screen.width, screen.height);
+        });
+
+        // جلوگیری از بسته شدن تب
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+
+        // جلوگیری از باز کردن پنجره جدید
+        window.addEventListener('blur', function() {
+            window.focus();
+        });
+
+        // نمایش پیام در کنسول
+        console.log('%c🚫 دسترسی مسدود شده است', 'color: red; font-size: 24px; font-weight: bold;');
+        console.log('%cلطفاً برای فعال‌سازی سایت، هزینه را پرداخت کنید', 'color: orange; font-size: 16px;');
+
+        // غیرفعال کردن کلیک راست روی تصویر
+        const paymentImage = document.getElementById('paymentImage');
+        paymentImage.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // جلوگیری از باز کردن لینک‌ها
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // جلوگیری از فوکوس روی المنت‌ها
+        document.addEventListener('focus', function(e) {
+            e.target.blur();
+        }, true);
+
+        // مسدود کردن کلیه events
+        const events = ['mousedown', 'mouseup', 'mousemove', 'mouseenter', 'mouseleave', 
+                       'keydown', 'keyup', 'keypress', 'input', 'change', 'submit', 'reset',
+                       'focus', 'blur', 'select', 'copy', 'cut', 'paste'];
+
+        events.forEach(function(event) {
+            document.addEventListener(event, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }, true);
+        });
+
+        // جلوگیری از تغییر URL
+        window.addEventListener('hashchange', function(e) {
+            e.preventDefault();
+            window.location.hash = '';
+        });
+
+        // جلوگیری از back/forward
+        window.addEventListener('popstate', function(e) {
+            e.preventDefault();
+            history.pushState(null, null, window.location.href);
+        });
+
+        // تنظیم history state
+        history.pushState(null, null, window.location.href);
+
+        // جلوگیری از refresh با Ctrl+R
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // نمایش پیام هر 30 ثانیه
+        setInterval(function() {
+            console.log('%c💳 لطفاً هزینه سایت را پرداخت کنید: 6104-3387-7673-3749', 'color: red; font-size: 16px;');
+        }, 30000);
+
+        // تلاش برای جلوگیری از بسته شدن تب
+        window.onbeforeunload = function() {
+            return "سایت مسدود شده است. برای خروج از کلیدهای سیستم استفاده کنید.";
+        };
+
+        // غیرفعال کردن کلیه فرم‌ها
+        document.addEventListener('submit', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // جلوگیری از auto-complete
+        document.addEventListener('autocomplete', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // مسدود کردن print
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // جلوگیری از save page
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // مخفی کردن cursor
+        document.body.style.cursor = 'none';
+
+        // جلوگیری از تغییر اندازه فونت
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '0')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // مسدود کردن inspect element از طریق منو
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.body) {
+                document.body.setAttribute('oncontextmenu', 'return false');
+                document.body.setAttribute('onselectstart', 'return false');
+                document.body.setAttribute('ondragstart', 'return false');
+            }
+        });
+
+        // جلوگیری از باز کردن لینک در تب جدید
+        document.addEventListener('auxclick', function(e) {
+            if (e.button === 1) { // middle click
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // غیرفعال کردن کلیه لینک‌ها
+        document.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            link.style.pointerEvents = 'none';
+        });
+
+        // جلوگیری از load شدن iframe
+        document.addEventListener('load', function(e) {
+            if (e.target.tagName === 'IFRAME') {
+                e.target.style.display = 'none';
+            }
+        }, true);
+
+        // مسدود کردن کلیه AJAX requests
+        const originalXHR = window.XMLHttpRequest;
+        window.XMLHttpRequest = function() {
+            const xhr = new originalXHR();
+            const originalOpen = xhr.open;
+            xhr.open = function() {
+                return false;
+            };
+            return xhr;
+        };
+
+        // مسدود کردن fetch
+        window.fetch = function() {
+            return Promise.reject(new Error('Blocked'));
+        };
+
+        // جلوگیری از تغییر DOM
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) { // Element node
+                        document.body.removeChild(node);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // نمایش هشدار هنگام تلاش برای خروج
+        window.addEventListener('beforeunload', function(e) {
+            const confirmationMessage = 'سایت مسدود شده است. برای خروج از کلیدهای سیستم استفاده کنید.';
+            e.returnValue = confirmationMessage;
+            return confirmationMessage;
+        });
+
+        // جلوگیری از تغییر title
+        let originalTitle = document.title;
+        Object.defineProperty(document, 'title', {
+            get: function() {
+                return originalTitle;
+            },
+            set: function(value) {
+                // جلوگیری از تغییر title
+            }
+        });
+
+        // مسدود کردن console methods
+        console.log = function() {};
+        console.warn = function() {};
+        console.error = function() {};
+        console.info = function() {};
+        console.debug = function() {};
+
+        // اما یک پیام مهم نمایش می‌دهیم
+        setTimeout(function() {
+            console.log('%c💸 PAYMENT REQUIRED 💸', 'color: red; font-size: 32px; font-weight: bold; text-shadow: 2px 2px 4px #000;');
+            console.log('%cشماره کارت: 6104-3387-7673-3749', 'color: yellow; font-size: 18px;');
+            console.log('%cتلفن: 09134202076', 'color: cyan; font-size: 16px;');
+        }, 1000);
+
     </script>
 </body>
 </html>
-
-
-

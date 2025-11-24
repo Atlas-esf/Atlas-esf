@@ -482,7 +482,68 @@
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-    
+
+    <!-- Payment Reminder Modal -->
+<div id="paymentModal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+    <div class="relative bg-white rounded-3xl shadow-2xl max-w-md mx-4 overflow-hidden transform scale-95 opacity-0 transition-all duration-500">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-red-500 to-rose-600 p-6 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
+                <i data-lucide="alert-triangle" class="w-8 h-8 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">توجه: پرداخت انجام نشده</h3>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6 text-center">
+            <p class="text-slate-700 mb-6 leading-relaxed">
+                متأسفانه هزینه طراحی و توسعه سایت هنوز پرداخت نشده است. لطفاً جهت فعال‌سازی کامل سایت، نسبت به پرداخت هزینه اقدام فرمایید.
+            </p>
+            
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-6">
+                <p class="text-amber-700 font-semibold flex items-center justify-center gap-2">
+                    <i data-lucide="credit-card" class="w-5 h-5"></i>
+                    شماره کارت: ۶۱۰۴-۳۳۸۷-۷۶۷۳-۳۷۴۹
+                </p>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+                <button id="closePaymentModal" class="w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-slate-800 hover:to-slate-950 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+                    <span>متوجه شدم</span>
+                    <i data-lucide="check" class="w-5 h-5"></i>
+                </button>
+                
+                <button id="contactBtn" class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg">
+                    <span>تماس با پشتیبانی</span>
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="bg-slate-50 p-4 text-center border-t border-slate-200">
+            <p class="text-slate-500 text-sm">با تشکر - تیم توسعه</p>
+        </div>
+    </div>
+</div>
+
+<!-- Payment Reminder Banner -->
+<div id="paymentBanner" class="fixed bottom-4 left-4 right-4 z-[9998] bg-gradient-to-r from-amber-500 to-orange-600 text-white p-4 rounded-2xl shadow-2xl transform translate-y-32 transition-transform duration-500">
+    <div class="flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                <i data-lucide="alert-circle" class="w-5 h-5 text-white"></i>
+            </div>
+            <div>
+                <p class="font-bold">توجه: پرداخت انجام نشده</p>
+                <p class="text-sm opacity-90">لطفاً جهت فعال‌سازی کامل سایت اقدام فرمایید</p>
+            </div>
+        </div>
+        <button id="showPaymentModal" class="bg-white text-amber-600 hover:bg-slate-100 px-4 py-2 rounded-xl transition-all duration-300 font-semibold whitespace-nowrap">
+            مشاهده جزئیات
+        </button>
+    </div>
+</div>
     <!-- Animated Background Elements -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-amber-300/10 to-orange-300/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
@@ -1367,5 +1428,6 @@
     </script>
 </body>
 </html>
+
 
 

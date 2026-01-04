@@ -6,567 +6,458 @@
     <title>جرثقیل سازی اطلس اصفهان</title>
     <meta name="description" content="تولید کننده انواع جرثقیل‌های صنعتی با بیش از یک دهه تجربه">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons CDN -->
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-    
-    <!-- Animated Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-amber-300/10 to-orange-300/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
-        <div class="absolute bottom-40 left-20 w-80 h-80 bg-gradient-to-br from-blue-300/10 to-cyan-300/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s; animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-gradient-to-br from-purple-300/5 to-pink-300/5 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s; animation-delay: 2s;"></div>
-    </div>
-
+<body>
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-lg border-b border-white/20">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center gap-4">
-                <div class="w-14 h-14 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl transform hover:rotate-12 hover:scale-110 transition-all duration-500 animate-pulse header-icon" style="animation-duration: 3s;">
-                    <i data-lucide="construction" class="w-8 h-8 text-white"></i>
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo Section (Triple click to login) -->
+                <div class="logo-section" id="logoSection">
+                    <div class="logo-icon">
+                        <i data-lucide="construction"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>جرثقیل سازی اطلس اصفهان</h1>
+                        <p>تولید کننده جرثقیل‌های صنعتی</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-2xl font-bold text-slate-800 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">جرثقیل سازی اطلس اصفهان</h1>
-                    <p class="text-slate-600">تولید کننده جرثقیل‌های صنعتی</p>
+
+                <!-- Auth Section -->
+                <div class="auth-section">
+                    <div id="userInfo" class="user-info" style="display: none;">
+                        <div class="user-badge">
+                            <i data-lucide="user"></i>
+                            <span id="username"></span>
+                        </div>
+                        <button id="dashboardBtn" class="btn-dashboard">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>پنل مدیریت</span>
+                        </button>
+                        <button id="logoutBtn" class="btn-logout">
+                            <i data-lucide="log-out"></i>
+                            <span>خروج</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-<section class="relative py-12 overflow-hidden">
-    <!-- Animated Background Layers -->
-    <div class="absolute inset-0 bg-gradient-to-br from-amber-500/20 via-orange-500/10 to-transparent parallax-bg"></div>
-    
-    <!-- Floating Shapes -->
-    <div class="absolute top-10 right-10 w-20 h-20 border-4 border-amber-400/30 rounded-lg rotate-45 animate-spin" style="animation-duration: 20s;"></div>
-    <div class="absolute bottom-20 left-20 w-16 h-16 border-4 border-orange-400/30 rounded-full animate-bounce" style="animation-duration: 3s;"></div>
-    <div class="absolute top-1/2 left-10 w-12 h-12 bg-gradient-to-br from-amber-400/20 to-orange-400/20 rounded-full blur-xl animate-pulse"></div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <!-- Large Hero Image Container -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl group hero-image">
-                <!-- Image -->
-                <div class="relative h-[400px] md:h-[500px]">
-                    <img
-                        src="./hedpic.png"
-                        alt="جرثقیل سازی اطلس اصفهان"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                        onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop'"
-                    />
-                    
-                    <!-- Gradient Overlays -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-600/30 via-transparent to-orange-600/30 group-hover:opacity-70 transition-opacity duration-700"></div>
-                    
-                    <!-- Animated Light Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/0 via-white/10 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 gradient-animation"></div>
-
-                    <!-- Text Overlay -->
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="text-center space-y-6 px-4 transform group-hover:scale-105 transition-transform duration-700">
-                            <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-2xl fade-in-up">
-                                جرثقیل سازی اطلس اصفهان
-                            </h1>
-                            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500/90 to-orange-500/90 backdrop-blur-md px-8 py-4 rounded-full shadow-2xl fade-in-up-delay border-2 border-white/30">
-                                <i data-lucide="sparkles" class="w-6 h-6 text-white animate-pulse"></i>
-                                <span class="text-white text-lg md:text-xl font-semibold">کیفیت برتر، خدمات حرفه‌ای</span>
-                                <i data-lucide="sparkles" class="w-6 h-6 text-white animate-pulse" style="animation-delay: 0.5s;"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Corner Decorations -->
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-400/30 to-transparent group-hover:w-48 group-hover:h-48 transition-all duration-700"></div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-orange-400/30 to-transparent group-hover:w-48 group-hover:h-48 transition-all duration-700"></div>
-                </div>
-
-                <!-- Bottom Shine Effect -->
-                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent group-hover:h-2 transition-all duration-500"></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Products Section -->
-<section class="py-20 relative">
-    <div class="container mx-auto px-4">
-        <!-- Section Header -->
-        <div class="text-center mb-16 space-y-4">
-            <div class="inline-block fade-in-down">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <div class="w-12 h-1 bg-gradient-to-r from-transparent to-amber-500 rounded-full"></div>
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-500 animate-pulse"></i>
-                    <div class="w-12 h-1 bg-gradient-to-l from-transparent to-amber-500 rounded-full"></div>
-                </div>
-            </div>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800">محصولات ما</h2>
-            <p class="text-slate-600 text-lg">برای مشاهده قیمت، روی دکمه کلیک کنید</p>
-        </div>
-
-        <!-- Products Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" id="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="0">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="./P1.jpg"
-                        alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='p1.jpg'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">سه تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">با کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۵۰۰ میلیون تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="1">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="./P2.jpg"
-                        alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='p2.jpg'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">دو تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">با کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۲۵۰ میلیون تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="2">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="./P3.jpg"
-                        alt="جرثقیل ۱۵ تن - سه تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='p3.jpg'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - سه تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">سه تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">بدون کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۲۵۰ میلیون تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-slate-200" data-index="3">
-                <div class="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-                    <img
-                        src="./P4.jpg"
-                        alt="جرثقیل ۱۵ تن - دو تلسکوپ"
-                        class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
-                        onerror="this.src='p4.jpg'"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg">
-                        <span class="flex items-center gap-2 text-sm">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
-                            جدید
-                        </span>
-                    </div>
-                </div>
-
-                <div class="p-6 relative">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">جرثقیل ۱۵ تن - دو تلسکوپ</h3>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                            <span class="text-sm">ظرفیت: ۱۵ تن</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-purple-500"></div>
-                            <span class="text-sm">دو تلسکوپ</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-slate-600">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                            <span class="text-sm">بدون کف و دوبل</span>
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <button class="price-toggle-btn w-full bg-gradient-to-r from-slate-700 to-slate-900 hover:from-amber-500 hover:to-orange-600 text-white py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                            <span>مشاهده قیمت</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
-                        </button>
-                        <div class="price-display hidden bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300 rounded-xl p-4 mt-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-slate-600 flex items-center gap-2">
-                                    <i data-lucide="star" class="w-4 h-4 text-amber-500"></i>
-                                    قیمت:
-                                </span>
-                                <span class="text-amber-600 font-bold">۲,۰۰۰ میلیون تومان</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Price Note -->
-        <div class="text-center">
-            <div class="inline-block bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-300 rounded-2xl p-6 shadow-xl">
-                <p class="text-blue-700 flex items-center gap-2 text-lg font-semibold">
-                    <i data-lucide="sparkles" class="w-5 h-5"></i>
-                    قیمت‌ها به میلیون تومان می‌باشد
-                    <i data-lucide="sparkles" class="w-5 h-5"></i>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Additional Models Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-100 via-white to-slate-50 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5 pattern-bg"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center mb-16">
-                <div class="inline-block fade-in-down">
-                    <div class="flex items-center justify-center gap-3 mb-4">
-                        <div class="w-12 h-1 bg-gradient-to-r from-transparent to-orange-500 rounded-full"></div>
-                        <i data-lucide="construction" class="w-6 h-6 text-orange-500 animate-pulse"></i>
-                        <div class="w-12 h-1 bg-gradient-to-l from-transparent to-orange-500 rounded-full"></div>
-                    </div>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">مدل‌های بیشتر</h2>
+    <!-- Main Website Content -->
+    <div id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="animated-blob blob-1"></div>
+                <div class="animated-blob blob-2"></div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Model 1 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="0">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
+            <div class="container">
+                <div class="hero-image-container">
+                    <img src="./hedpic.png" alt="جرثقیل سازی اطلس اصفهان" class="hero-image" 
+                         onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=600&fit=crop'">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-gradient"></div>
                     
-                    <div class="relative h-80 overflow-hidden">
-                        <img
-                            src="./M1.jpg"
-                            alt="مدل‌های متنوع جرثقیل"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='https://images.unsplash.com/photo-1751054720514-067105f538d4?w=600'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">مدل‌های متنوع جرثقیل</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
+                    <div class="hero-content">
+                        <h1 class="hero-title">جرثقیل سازی اطلس اصفهان</h1>
+                        <div class="hero-badge">
+                            <i data-lucide="sparkles"></i>
+                            <span>کیفیت برتر، خدمات حرفه‌ای</span>
+                            <i data-lucide="sparkles"></i>
                         </div>
                     </div>
+
+                    <div class="hero-corner corner-top"></div>
+                    <div class="hero-corner corner-bottom"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-decoration">
+                        <div class="line"></div>
+                        <i data-lucide="sparkles"></i>
+                        <div class="line"></div>
+                    </div>
+                    <h2>محصولات ما</h2>
+                    <p>برای مشاهده قیمت، روی دکمه کلیک کنید</p>
                 </div>
 
-                <!-- Model 2 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="1">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-80 overflow-hidden">
-                        <img
-                            src="./M2.jpg"
-                            alt="کیفیت برتر ساخت"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='M2.jpg'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">کیفیت برتر ساخت</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be injected by JavaScript -->
+                </div>
+
+                <!-- Price Note -->
+                <div class="price-note">
+                    <i data-lucide="sparkles"></i>
+                    قیمت‌ها به میلیون تومان می‌باشد
+                    <i data-lucide="sparkles"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Models Section -->
+        <section class="models">
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-decoration">
+                        <div class="line line-orange"></div>
+                        <i data-lucide="construction"></i>
+                        <div class="line line-orange"></div>
+                    </div>
+                    <h2 class="title-orange">مدل‌های بیشتر</h2>
+                </div>
+
+                <!-- Models Grid -->
+                <div class="models-grid">
+                    <div class="model-card">
+                        <img src="./M1.jpg" alt="مدل‌های متنوع جرثقیل" 
+                             onerror="this.src='https://images.unsplash.com/photo-1751054720514-067105f538d4?w=600'">
+                        <div class="model-overlay"></div>
+                        <div class="model-dots">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                        </div>
+                        <div class="model-content">
+                            <p>مدل‌های متنوع جرثقیل</p>
+                            <div class="model-line"></div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Model 3 -->
-                <div class="model-card group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4" data-index="2">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 via-amber-400 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10"></div>
-                    
-                    <div class="relative h-80 overflow-hidden">
-                        <img
-                            src="./M3.jpg"
-                            alt="خدمات پس از فروش"
-                            class="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
-                            onerror="this.src='M3.jpg'"
-                        />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-black/60 transition-all duration-500"></div>
-                        
-                        <div class="absolute top-4 right-4 w-3 h-3 bg-amber-400 rounded-full animate-ping"></div>
-                        <div class="absolute top-8 right-8 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                        
-                        <div class="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-0 transition-transform duration-500">
-                            <p class="text-xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-500">خدمات پس از فروش</p>
-                            <div class="w-0 group-hover:w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full transition-all duration-700 mt-2"></div>
+                    <div class="model-card">
+                        <img src="./M2.jpg" alt="کیفیت برتر ساخت"
+                             onerror="this.src='https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600'">
+                        <div class="model-overlay"></div>
+                        <div class="model-dots">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                        </div>
+                        <div class="model-content">
+                            <p>کیفیت برتر ساخت</p>
+                            <div class="model-line"></div>
+                        </div>
+                    </div>
+
+                    <div class="model-card">
+                        <img src="./M3.jpg" alt="خدمات پس از فروش"
+                             onerror="this.src='https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600'">
+                        <div class="model-overlay"></div>
+                        <div class="model-dots">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                        </div>
+                        <div class="model-content">
+                            <p>خدمات پس از فروش</p>
+                            <div class="model-line"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="support">
+            <div class="support-bg">
+                <div class="support-blob blob-1"></div>
+                <div class="support-blob blob-2"></div>
+            </div>
+
+            <div class="container">
+                <!-- Section Header -->
+                <div class="section-header section-header-light">
+                    <div class="section-decoration">
+                        <i data-lucide="headphones"></i>
+                        <div class="line line-light"></div>
+                        <div class="line line-light"></div>
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <h2>پشتیبانی و ارتباط با ما</h2>
+                    <p>ما آماده پاسخگویی به سوالات شما هستیم</p>
+                </div>
+
+                <!-- Contact Grid -->
+                <div class="contact-grid">
+                    <!-- Phone -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div class="contact-icon icon-green">
+                                <i data-lucide="phone"></i>
+                            </div>
+                            <h3>تماس تلفنی</h3>
+                        </div>
+                        <a href="tel:09134202076" class="contact-link">۰۹۱۳۴۲۰۲۰۷۶</a>
+                    </div>
+
+                    <!-- Instagram -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div class="contact-icon icon-pink">
+                                <i data-lucide="instagram"></i>
+                            </div>
+                            <h3>اینستاگرام</h3>
+                        </div>
+                        <a href="https://instagram.com/alikarimi_1013" target="_blank" class="contact-link">@alikarimi_1013</a>
+                    </div>
+
+                    <!-- Card Number -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div class="contact-icon icon-indigo">
+                                <i data-lucide="credit-card"></i>
+                            </div>
+                            <h3>شماره کارت</h3>
+                        </div>
+                        <p class="contact-text" dir="ltr">6104-3387-7673-3749</p>
+                    </div>
+
+                    <!-- Manager -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div class="contact-icon icon-blue">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <h3>مدیریت</h3>
+                        </div>
+                        <p class="contact-text">علیرضا کریمی</p>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="contact-card contact-card-wide">
+                        <div class="contact-header">
+                            <div class="contact-icon icon-orange">
+                                <i data-lucide="map-pin"></i>
+                            </div>
+                            <h3>آدرس</h3>
+                        </div>
+                        <p class="contact-text">اصفهان، شهرک صنعتی امیرکبیر (شاهپور جدید)، خیابان امام رضا (دفتر جرثقیل اصفهان اطلس)</p>
+                    </div>
+                </div>
+
+                <!-- Final Note -->
+                <div class="final-note">
+                    <div class="final-note-header">
+                        <div class="pulse-dot"></div>
+                        <p>🏭 جرثقیل کفی دار موجود در انواع مدل</p>
+                        <div class="pulse-dot pulse-delay"></div>
+                    </div>
+                    <p class="final-note-text">با سال‌ها تجربه در صنعت جرثقیل سازی در خدمت شما هستیم</p>
+                    <div class="services">
+                        <div class="service-item">
+                            <i data-lucide="phone"></i>
+                            <span>پشتیبانی ۲۴/۷</span>
+                        </div>
+                        <div class="service-item">
+                            <i data-lucide="mail"></i>
+                            <span>مشاوره رایگان</span>
+                        </div>
+                        <div class="service-item">
+                            <i data-lucide="headphones"></i>
+                            <span>خدمات پس از فروش</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <div class="footer-icon">
+                            <i data-lucide="construction"></i>
+                        </div>
+                        <div>
+                            <p class="footer-title">جرثقیل سازی اطلس اصفهان</p>
+                            <div class="footer-line"></div>
+                        </div>
+                    </div>
+
+                    <p class="footer-desc">تولید کننده انواع جرثقیل‌های صنعتی با کیفیت برتر</p>
+
+                    <div class="footer-divider">
+                        <div class="divider-line"></div>
+                        <div class="footer-made">
+                            <span>ساخته شده با</span>
+                            <i data-lucide="heart" class="heart-icon"></i>
+                            <span>در ایران</span>
+                        </div>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <p class="footer-copyright">© ۱۴۰۳ جرثقیل سازی اطلس اصفهان. تمامی حقوق محفوظ است</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Admin Dashboard (Hidden by default) -->
+    <div id="adminDashboard" style="display: none;">
+        <!-- Dashboard content will be inserted by JavaScript -->
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="closeLoginModal">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="modal-icon">
+                    <i data-lucide="lock"></i>
+                </div>
+                <h2>ورود به پنل مدیریت</h2>
+                <p>برای مدیریت محصولات وارد شوید</p>
+            </div>
+
+            <form id="loginForm" class="modal-form">
+                <div id="loginError" class="error-message" style="display: none;"></div>
+
+                <div class="form-group">
+                    <label>نام کاربری</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="user"></i>
+                        <input type="text" id="loginUsername" placeholder="نام کاربری خود را وارد کنید" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>رمز عبور</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="lock"></i>
+                        <input type="password" id="loginPassword" placeholder="رمز عبور خود را وارد کنید" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i data-lucide="log-in"></i>
+                    <span>ورود</span>
+                </button>
+
+                <p class="form-note">فقط مدیران می‌توانند وارد شوند</p>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="py-20 relative overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 6s; animation-delay: 1s;"></div>
-            <div class="absolute top-1/2 left-1/2 w-96 h-96 bg-yellow-500 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s; animation-delay: 2s;"></div>
+    <!-- Edit Price Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header modal-header-green">
+                <button class="modal-close" id="closeEditModal">
+                    <i data-lucide="x"></i>
+                </button>
+                <div class="modal-icon">
+                    <i data-lucide="edit-3"></i>
+                </div>
+                <h2>ویرایش محصول</h2>
+                <p id="editProductTitle"></p>
+            </div>
+
+            <form id="editForm" class="modal-form">
+                <div class="form-group">
+                    <label>عنوان محصول</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="tag"></i>
+                        <input type="text" id="editTitle" required dir="rtl">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ظرفیت</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="weight"></i>
+                        <input type="text" id="editCapacity" required dir="rtl">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>نوع تلسکوپ</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="move-vertical"></i>
+                        <input type="text" id="editTelescope" required dir="rtl">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>نوع کف</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="layers"></i>
+                        <input type="text" id="editFloor" required dir="rtl">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>قیمت</label>
+                    <div class="input-wrapper">
+                        <i data-lucide="dollar-sign"></i>
+                        <input type="text" id="editPrice" required dir="rtl">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit btn-submit-green">
+                        <i data-lucide="save"></i>
+                        <span>ذخیره</span>
+                    </button>
+                    <button type="button" class="btn-cancel" id="cancelEdit">انصراف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Button -->
+    <button id="chatbotBtn" class="chatbot-btn">
+        <i data-lucide="message-circle"></i>
+    </button>
+
+    <!-- AI Chatbot Window -->
+    <div id="chatbotWindow" class="chatbot-window" style="display: none;">
+        <div class="chatbot-header">
+            <div class="chatbot-header-content">
+                <div class="chatbot-avatar">
+                    <i data-lucide="bot"></i>
+                </div>
+                <div>
+                    <h3>دستیار هوشمند</h3>
+                    <p>آنلاین</p>
+                </div>
+            </div>
+            <button id="closeChatbot" class="chatbot-close">
+                <i data-lucide="x"></i>
+            </button>
         </div>
 
-        <div class="container mx-auto px-4 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-16 space-y-4">
-                <div class="inline-block fade-in-down">
-                    <div class="flex items-center justify-center gap-3 mb-4">
-                        <i data-lucide="phone" class="w-6 h-6 text-amber-400 animate-bounce"></i>
-                        <div class="w-12 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full"></div>
-                        <div class="w-12 h-1 bg-gradient-to-l from-amber-400 to-orange-400 rounded-full"></div>
-                        <i data-lucide="phone" class="w-6 h-6 text-amber-400 animate-bounce" style="animation-delay: 0.2s;"></i>
-                    </div>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white">برای اطلاعات بیشتر تماس حاصل فرمایید</h2>
-                <p class="text-slate-300 text-lg">ما آماده پاسخگویی به سوالات شما هستیم</p>
-            </div>
-
-            <!-- Contact Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                <!-- Phone -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="0">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="phone" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">تماس تلفنی</h3>
-                    </div>
-                    <a href="tel:09134202076" class="text-emerald-300 hover:text-emerald-200 transition-colors text-lg font-semibold" dir="ltr">
-                        ۰۹۱۳۴۲۰۲۰۷۶
-                    </a>
-                </div>
-
-                <!-- Instagram -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="1">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="instagram" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">اینستاگرام</h3>
-                    </div>
-                    <a href="https://instagram.com/alikarimi_1013" target="_blank" rel="noopener noreferrer" class="text-pink-300 hover:text-pink-200 transition-colors text-lg font-semibold">
-                        @alikarimi_1013
-                    </a>
-                </div>
-
-                <!-- Card Number -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="2">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="credit-card" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">شماره کارت</h3>
-                    </div>
-                    <p class="text-amber-300 text-lg font-semibold" dir="ltr">6104-3387-7673-3749</p>
-                </div>
-
-                <!-- Manager -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl" data-index="3">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="user" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">مدیریت</h3>
-                    </div>
-                    <p class="text-cyan-300 text-lg font-semibold">علیرضا کریمی</p>
-                </div>
-
-                <!-- Address -->
-                <div class="contact-card bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2 shadow-xl lg:col-span-2" data-index="4">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                            <i data-lucide="map-pin" class="w-7 h-7 text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">آدرس</h3>
-                    </div>
-                    <p class="text-rose-300 text-lg leading-relaxed">
-                        اصفهان، شهرک صنعتی امیرکبیر (شاهپور جدید)، خیابان امام رضا (دفتر جرثقیل اصفهان اطلس)
-                    </p>
-                </div>
-            </div>
-
-            <!-- Final Note -->
-            <div class="bg-gradient-to-r from-amber-500/30 via-orange-500/30 to-amber-500/30 backdrop-blur-xl border-2 border-amber-400/50 rounded-3xl p-10 text-center max-w-4xl mx-auto shadow-2xl transform hover:scale-105 transition-all duration-500 fade-in-up-delay">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-300 animate-pulse"></i>
-                    <p class="text-amber-200 text-lg font-semibold">🏭 جرثقیل کفی دار موجود در انواع مدل</p>
-                    <i data-lucide="sparkles" class="w-6 h-6 text-amber-300 animate-pulse" style="animation-delay: 0.5s;"></i>
-                </div>
-                <p class="text-slate-200 text-lg">با سال‌ها تجربه در صنعت جرثقیل سازی در خدمت شما هستیم</p>
-            </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Messages will be added by JavaScript -->
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 border-t border-slate-800 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5 footer-pattern"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="text-center space-y-6">
-                <div class="flex items-center justify-center gap-4 fade-in">
-                    <div class="w-16 h-16 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl transform hover:rotate-12 hover:scale-110 transition-all duration-500">
-                        <i data-lucide="construction" class="w-9 h-9 text-white"></i>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-xl font-bold text-white">جرثقیل سازی اطلس اصفهان</p>
-                        <div class="w-full h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mt-1"></div>
-                    </div>
-                </div>
-                <p class="text-slate-400">تولید کننده انواع جرثقیل‌های صنعتی</p>
-                <div class="flex items-center justify-center gap-2 text-slate-500">
-                    <div class="w-12 h-px bg-gradient-to-r from-transparent to-slate-700"></div>
-                    <p>© ۱۴۰۳ تمامی حقوق محفوظ است</p>
-                    <div class="w-12 h-px bg-gradient-to-l from-transparent to-slate-700"></div>
-                </div>
-            </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="پیام خود را بنویسید...">
+            <button id="sendMessage" class="chatbot-send">
+                <i data-lucide="send"></i>
+            </button>
         </div>
-    </footer>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
-
-
